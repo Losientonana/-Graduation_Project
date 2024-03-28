@@ -7,17 +7,20 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Date;
+
+@Entity
 @Getter
 @Setter
-@Entity
-public class BookEntity {
+public class RentalEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String title;
-    private String author;
-    private String genre;
-    private String locationinfo;
-    private Boolean rentalstate;
+    private Long userId;
+    private Long bookId;
+    private Date rentalTime;
+    private Date returnTime;
+    private boolean rentalState;
+
 }
