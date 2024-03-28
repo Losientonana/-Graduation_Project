@@ -13,7 +13,7 @@ import java.util.Iterator;
 
 @RestController
 public class MainController {
-    @GetMapping("/admin")
+    @GetMapping("/main")
     public String admin() {
         String name = SecurityContextHolder.getContext().getAuthentication().getName();
 

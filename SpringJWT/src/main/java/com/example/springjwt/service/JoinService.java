@@ -37,7 +37,7 @@ public class JoinService {
         data.setUsername(username);
         data.setPassword(bCryptPasswordEncoder.encode(password));
         // 비밀번호를 생성시 bCryptPasswordEncoder 이용하여 암호를 해쉬화 해야한다.
-        data.setRole("ROLE_ADMIN");
+        data.setRole("ROLE_USER");
         // 스프링은 Role 권한을 줄때 앞에 ROLE_ 이라는 접두사를 붙이고 그 뒤에 역할을 써주면 된다.
 
         userRepository.save(data);

@@ -50,8 +50,8 @@ public class SecurityConfig {
                 .formLogin((auth) -> auth.disable())
                 .httpBasic((auth) -> auth.disable())
                 .authorizeHttpRequests((auth) -> auth
-                        .requestMatchers("/login", "/", "/join").permitAll()
-                        .requestMatchers("/admin").hasRole("ADMIN")
+                        .requestMatchers("/login", "/", "/join","/api/rent").permitAll()
+                        .requestMatchers("main").hasRole("USER")
                         // 스웨거 페이지 및 관련 리소스에 대한 접근 허용
                         .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-resources/**").permitAll()
                         .anyRequest().authenticated())

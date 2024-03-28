@@ -8,6 +8,8 @@ public interface UserRepository extends JpaRepository<UserEntity, Integer> {
 // SQL 쿼리를 자동으로 생성하는 기능을 수행한다.
     Boolean existsByUsername(String username);
 
-// DB에서 데이터를 조회하여 UserDetailsService에게 넘겨줘야 하기 때문에 ntity타입으로 반환해야한다.
+// DB에서 데이터를 조회하여 UserDetailsService에게 넘겨줘야 하기 때문에 entity타입으로 반환해야한다.
     UserEntity findByUsername(String username);
+
+
 }

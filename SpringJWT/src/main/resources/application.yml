@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8081
 
 # database 연동 설정
 spring:
@@ -19,7 +19,7 @@ spring:
     open-in-view: false
     show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
 
   jwt:
     secret: tkachsdlfmadmswjdwlscjfwlrdjqdmsvotuselwkdlsj
