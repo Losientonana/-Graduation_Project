@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8082
 
 # database 연동 설정
 spring:
@@ -20,6 +20,21 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+
+  springdoc:
+    swagger-ui:
+      path: /swagger-ui.html
+      groups-order: DESC
+      operationsSorter: method
+      disable-swagger-default-url: true
+      display-request-duration: true
+    api-docs:
+      path: /api-docs
+    show-actuator: true
+    default-consumes-media-type: application/json
+    default-produces-media-type: application/json
+    paths-to-match:
+      - /v1/**
 
   jwt:
     secret: tkachsdlfmadmswjdwlscjfwlrdjqdmsvotuselwkdlsj
