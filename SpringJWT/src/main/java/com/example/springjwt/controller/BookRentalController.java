@@ -4,12 +4,13 @@ import com.example.springjwt.dto.RentalDTO;
 import com.example.springjwt.entity.RentalEntity;
 import com.example.springjwt.service.BookRentalService;
 
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
 @Slf4j
 @RestController
 @RequestMapping("/api")
@@ -42,5 +43,10 @@ public class BookRentalController {
         } else {
             return ResponseEntity.badRequest().body("Book was not rented or does not exist.");
         }
+    }
+
+    @GetMapping("/list/{userId}")
+    public List<RentalEntity> getUnreturnedRentalsByUserId(@PathVariable Long userId) {
+        return bookRentalService.getUnreturnedRentalsByUserId(userId);
     }
 }

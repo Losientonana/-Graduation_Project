@@ -74,5 +74,8 @@ public class BookRentalService {
         return true;
     }
 
+    public List<RentalEntity> getUnreturnedRentalsByUserId(Long userId){
+        return rentalRepository.findByUserIdAndRentalStateTrue(userId);
+    }
 
 }
