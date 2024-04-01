@@ -14,3 +14,6 @@ Book_entity에서 Rentalstate가 0인 책은 빌릴 수 없게 제한을 다시 
 Controller에서 Entity를 직접 받는 방식이 부적합하다고 판단하여, MappingMapper을 이용하여 DTO객체로 변환하는 방식으로 수정
 반납로직을 이용시, DB에 Return 시간을 남기는 방식 추가
 사용자별 빌린 책, 빌린 시간 확인 기능 추가
+
+4월2일
+login성공시 response Body에 userID를 반환
