@@ -31,6 +31,13 @@ public class SecurityConfig {
         this.jwtUtil = jwtUtil;
     }
 
+    private static final String[] AUTH_WHITELIST = {
+            "/api/**", "/graphiql", "/graphql",
+            "/swagger-ui/**", "/api-docs", "/swagger-ui-custom.html",
+            "/v3/api-docs/**", "/api-docs/**", "/swagger-ui.html"
+    };
+
+
     //AuthenticationManager Bean 등록
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
@@ -56,6 +63,10 @@ public class SecurityConfig {
                         .requestMatchers("/login", "/", "/join", "/api/**").permitAll()
                         .requestMatchers("/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**", "/swagger-resources/**", "/webjars/**").permitAll()
                         .requestMatchers("main").hasRole("USER")
+
+                        // 테스트를 위해 모든 경로 허용
+//                        .requestMatchers("/**").permitAll()
+
                         .anyRequest().authenticated())
                 .addFilterAt(new LoginFilter(authenticationManager(authenticationConfiguration), jwtUtil), UsernamePasswordAuthenticationFilter.class)
                 .addFilterBefore(new JWTFilter(jwtUtil), LoginFilter.class)
