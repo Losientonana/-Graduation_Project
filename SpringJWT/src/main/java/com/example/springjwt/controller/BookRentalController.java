@@ -2,14 +2,19 @@ package com.example.springjwt.controller;
 
 import com.example.springjwt.dto.JoinDTO;
 import com.example.springjwt.dto.RentalDTO;
+import com.example.springjwt.entity.BookEntity;
 import com.example.springjwt.entity.RentalEntity;
 import com.example.springjwt.service.BookRentalService;
 
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.action.internal.EntityActionVetoException;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -19,7 +24,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 
 @Slf4j
 @RestController
-@RequestMapping("/api")
+@RequestMapping("application/api")
 public class BookRentalController {
     private final BookRentalService bookRentalService;
 
@@ -49,14 +54,43 @@ public class BookRentalController {
     )
     @PostMapping("/rent")
     public ResponseEntity<?> rentBook(@RequestBody RentalDTO rentalDTO) {
-        boolean success = bookRentalService.rentBook(rentalDTO);
-        log.info("getbookid = {},getuserid = {}, rentalStatie = {}", rentalDTO.getBookId(), rentalDTO.getUserId(), rentalDTO.getRentalState());
-        if (success) {
-            return ResponseEntity.ok().body("Book rented successfully.");
-        } else {
-            return ResponseEntity.badRequest().body("Book is already rented or does not exist.");
+        try {
+            BookEntity rentedBook = bookRentalService.rentBook(rentalDTO);
+            Map<String, Object> responseBody = new HashMap<>();
+            responseBody.put("message", "Book rented successfully.");
+            responseBody.put("locationInfo", rentedBook.getLocationInfo());
+            return ResponseEntity.ok().body(responseBody);
+        } catch (EntityActionVetoException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        } catch (IllegalStateException e) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());
         }
     }
+//마지막꺼
+//    @PostMapping("/rent")
+//    public ResponseEntity<?> rentBook(@RequestBody RentalDTO rentalDTO) {
+//        BookEntity rentedBook = bookRentalService.rentBook(rentalDTO);
+//        if (rentedBook != null) {
+//            Map<String, Object> responseBody = new HashMap<>();
+//            responseBody.put("message", "Book rented successfully.");
+//            responseBody.put("locationInfo", rentedBook.getLocationInfo());
+//            return ResponseEntity.ok().body(responseBody);
+//        } else {
+//            return ResponseEntity.badRequest().body("Book is already rented or does not exist.");
+//        }
+
+
+
+//    @PostMapping("/rent")
+//    public ResponseEntity<?> rentBook(@RequestBody RentalDTO rentalDTO) {
+//        boolean success = bookRentalService.rentBook(rentalDTO);
+//        log.info("getbookid = {},getuserid = {}, rentalStatie = {}", rentalDTO.getBookId(), rentalDTO.getUserId(), rentalDTO.getRentalState());
+//        if (success) {
+//            return ResponseEntity.ok().body("Book rented successfully.");
+//        } else {
+//            return ResponseEntity.badRequest().body("Book is already rented or does not exist.");
+//        }
+//    }
 
     @Operation(
             summary = "도서 반납",
