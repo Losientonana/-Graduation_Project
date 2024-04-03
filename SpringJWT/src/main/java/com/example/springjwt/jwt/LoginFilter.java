@@ -1,7 +1,6 @@
 package com.example.springjwt.jwt;
 
 import com.example.springjwt.dto.CustomUserDetails;
-import com.example.springjwt.repository.UserRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.http.HttpServletRequest;
