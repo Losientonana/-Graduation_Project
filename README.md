@@ -39,3 +39,16 @@ login성공시 response Body에 userID를 반환
 
 다음:
 Swagger 정리 및 각종 예외처리 테스트
+
+
+4/11일
+
+Notion에 api 명세서 업데이트
+logout로직 구현
+
+
+
+![image](https://github.com/Robomance-BTY/BTY_Server/assets/118197691/06626b92-7d25-4e6b-a190-2526fb5682cc)
+
+
+
