@@ -49,7 +49,8 @@ logout로직 구현
 
 
 
-![image](https://github.com/Losientonana/-Graduation_Project/assets/118197691/cc20e218-a6fa-41cb-877a-d4d19fb1cac0)
+![image](https://github.com/Losientonana/-Graduation_Project/assets/118197691/d5bb6370-b5e0-4943-a747-f1e1061cac12)
+
 
 
 
