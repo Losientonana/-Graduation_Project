@@ -48,7 +48,11 @@ logout로직 구현
 
 
 
-![image](https://github.com/Robomance-BTY/BTY_Server/assets/118197691/06626b92-7d25-4e6b-a190-2526fb5682cc)
+
+![image](https://github.com/Losientonana/-Graduation_Project/assets/118197691/cc20e218-a6fa-41cb-877a-d4d19fb1cac0)
+
+
+
 
 
 
