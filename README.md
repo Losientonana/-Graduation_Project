@@ -73,3 +73,25 @@ STOMP를 사용하여,
 추후 고려해야할 사항: 
 1. 책대여,책예약,책반납(그냥반납),책반납(예약된책 반납),로그아웃(예약된 책 모두 반납하고 예약가능하게 바꾸기) 중 어떤부분에 어떻게 메시지를 전달할 것인가?
 2. 책대여, 책예약, 책반납시 전부 locationInfo를 지금 앱에 주고있는데, 앞으로 바뀌는 로직에 맞춰서 무엇을 주는게 맞는것일까?
+
+
+5월 13일
+1. testMethodForReserve 예약에 필요한 메소드 만들기(bookId)
+    1. rental_state중 파라미터로 넘어온 bookId중 rental_state가 1이 있으면 Boolean리턴)
+2. cancelReserve 반납에 필요한 메소드 만들기(bookId)
+    1. rental_state중 파라미터로 넘어온 bookId중 rental_state가 1이 있으면 Boolean리턴
+    2. reservation중 bookId에 맞는 가장 처음 빌린 컬럼 자체 리턴
+3. cancelReserve 예약취소 만들기(userid)
+
+
+5월 29일
+1. STOMP를 통해 라즈베리 카메라로부터 들어오는 보관함 상태를 메모리 변수에 계속 업데이트
+2. 아래 형식으로 api호출시 MobilePlatform에 전달
+  1. 책 꽂이에서 대여
+책 위치(bookLocation), 사용자 위치(userLocation), 책id(bookId) ,사용가능한 보관함 위치(assignedRegion)
+
+2. 반납
+(userLocation), 책id(bookId) ,사용가능한 보관함 위치(assignedRegion)
+
+ 3. 예약한책 누가 반납해서 갖다줘야함
+반납사용자 위치(startPoint), 예약한사용자 위치(endPoint), 책id(bookId), 사용가능한 보관함 위치(assignedRegion)
