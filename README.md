@@ -17,3 +17,7 @@ Controller에서 Entity를 직접 받는 방식이 부적합하다고 판단하�
 
 4월2일
 login성공시 response Body에 userID를 반환
+
+
+<img width="1260" alt="STOMP 동작과정" src="https://github.com/user-attachments/assets/1c27c954-7fdc-4695-a5db-92f6215231a6" />
+![북카페 ERD](https://github.com/user-attachments/assets/816efe80-3f5a-401d-80e3-1df6f01602bc)
