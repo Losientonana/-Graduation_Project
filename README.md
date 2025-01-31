@@ -20,4 +20,7 @@ login성공시 response Body에 userID를 반환
 
 
 <img width="1260" alt="STOMP 동작과정" src="https://github.com/user-attachments/assets/1c27c954-7fdc-4695-a5db-92f6215231a6" />
-![북카페 ERD](https://github.com/user-attachments/assets/816efe80-3f5a-401d-80e3-1df6f01602bc)
+
+
+![북카페 ERD](https://github.com/user-attachments/assets/ff4dfe40-e121-4f5b-86fd-b4aa7444443b)
+
